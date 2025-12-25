@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas Surprise for Prapti 🎄❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+      background: linear-gradient(to bottom, #ffccd5, #ffe6f0);
+      color: #800000;
+      overflow-x: hidden;
+      padding: 30px;
+    }
+    button {
+      background-color: #ff3366;
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      margin: 20px;
+      font-size: 18px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      transform: scale(1.1);
+      background-color: #ff6699;
+    }
+    .question, #endPage {
+      display: none;
+      margin-top: 50px;
+    }
+    #surprise {
+      font-size: 22px;
+      color: #ff1a75;
+      margin-top: 20px;
+      display: none;
+    }
+    .heart {
+      color: red;
+      font-size: 30px;
+      animation: beat 1s infinite alternate;
+    }
+    @keyframes beat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: 20px;
+      user-select: none;
+      pointer-events: none;
+      z-index: 9999;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="page1">
+    <h1>🎄 Merry Christmas, Prapti! 🎄</h1>
+    <p>Click continue to answer some love questions from your Ankit ❤️</p>
+    <button onclick="nextPage(1)">Continue</button>
+  </div>
+
+  <div id="page2" class="question">
+    <h2>Question 1 ❤️</h2>
+    <p>Do you know how much Ankit likes you?</p>
+    <button onclick="showSurprise('Yes! I like you sooo much 🥰💖')">Yes</button>
+    <button onclick="showSurprise('Aww! Even more than you think 🥹🖤')">No</button>
+  </div>
+
+  <div id="page3" class="question">
+    <h2>Question 2 ❤️</h2>
+    <p>Do you enjoy spending time with me, Prapti?</p>
+    <button onclick="showSurprise('Yay! Me too 🥹💞')">Yes</button>
+    <button onclick="showSurprise('Don’t worry, I will make it super fun 😘💖')">No</button>
+  </div>
+
+  <div id="page4" class="question">
+    <h2>Question 3 ❤️</h2>
+    <p>Do you know you’re the best thing that ever happened to me?</p>
+    <button onclick="showSurprise('Exactly! You are my world 🌎💖')">Yes</button>
+    <button onclick="showSurprise('I will remind you every day 🥹❤️')">No</button>
+  </div>
+
+  <div id="endPage">
+    <h2>🥰❤️ Surprise, Prapti! ❤️🥰</h2>
+    <p>Duniyaa ki sbse best feeling apke sath rehne me ati he🥹🖤</p>
+    <p>Babyy ap bolo ya na bolo.. Apse zada smjhdar or best ladki koi ni he😭😭🤌🏻</p>
+    <p>Muaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah💋💋💋</p>
+    <p>Love u so much merii baggooo meriiii laaado mera bachaaaa🥹🧿</p>
+    <span class="heart">❤️</span>
+  </div>
+
+  <div id="surprise"></div>
+
+  <script>
+    let currentPage = 1;
+
+    function nextPage(page) {
+      document.getElementById("page" + page).style.display = "none";
+      if(page < 4){
+        document.getElementById("page" + (page + 1)).style.display = "block";
+      } else {
+        document.getElementById("endPage").style.display = "block";
+      }
+    }
+
+    function showSurprise(message) {
+      const surpriseDiv = document.getElementById("surprise");
+      surpriseDiv.innerHTML = message;
+      surpriseDiv.style.display = "block";
+      setTimeout(() => {
+        surpriseDiv.style.display = "none";
+        nextPage(currentPage);
+        currentPage++;
+      }, 2000);
+    }
+
+    // Snow effect
+    for(let i=0; i<50; i++){
+      let snow = document.createElement('div');
+      snow.className = 'snowflake';
+      snow.style.left = Math.random() * window.innerWidth + 'px';
+      snow.style.animationDuration = (5 + Math.random() * 5) + 's';
+      snow.style.fontSize = (10 + Math.random() * 20) + 'px';
+      snow.innerHTML = '❄';
+      document.body.appendChild(snow);
+    }
+  </script>
+
+</body>
+</html>
