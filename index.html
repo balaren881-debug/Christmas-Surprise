@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Prapti ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.card {
+    background: rgba(255,255,255,0.15);
+    padding: 30px;
+    border-radius: 22px;
+    width: 90%;
+    max-width: 360px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+}
+
+button {
+    background: #ff2f68;
+    border: none;
+    color: white;
+    padding: 12px 28px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 22px;
+}
+
+button:hover {
+    background: #ff174f;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="content">
+    <h2>Hey Prapti ❤️</h2>
+    <p>This is something made just for you…</p>
+    <button onclick="next()">Continue</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
+<script>
+let step = 0;
+const content = document.getElementById("content");
+
+function next() {
+    step++;
+
+    if (step === 1) {
+        content.innerHTML = `
+        <h2>Question 1 💕</h2>
+        <p>Do you believe that true love still exists?</p>
+        <button onclick="next()">Yes ❤️</button>`;
+    }
+
+    else if (step === 2) {
+        content.innerHTML = `
+        <h2>Question 2 💖</h2>
+        <p>Do you know someone who genuinely cares for you?</p>
+        <button onclick="next()">Yes 🥰</button>`;
+    }
+
+    else if (step === 3) {
+        content.innerHTML = `
+        <h2>Question 3 💗</h2>
+        <p>Do you believe loyalty makes love stronger?</p>
+        <button onclick="next()">Absolutely 💞</button>`;
+    }
+
+    else if (step === 4) {
+        content.innerHTML = `
+        <h2>Just One More ✨</h2>
+        <p>Are you ready to see how special you are to someone?</p>
+        <button onclick="next()">Yes 🥹</button>`;
+    }
+
+    else if (step === 5) {
+        content.innerHTML = `
+        <h2>Merry Christmas Prapti 🎄❤️</h2>
+        <p style="line-height:1.6;">
+        What I love most about you is<br>
+        how deeply you care,<br>
+        how genuinely you love,<br>
+        and how loyal your heart is 💖<br><br>
+        You make everything feel safe,<br>
+        warm, and real.<br><br>
+        — Ankit
+        </p>
+
+        <div id="qrcode" style="margin-top:20px;"></div>
+        <p style="font-size:12px; opacity:0.9;">
+        Scan this anytime to remember this moment 💝
+        </p>
+        `;
+
+        new QRCode(document.getElementById("qrcode"), {
+            text: window.location.href,
+            width: 160,
+            height: 160
+        });
+    }
+}
+</script>
+
+</body>
+</html>
